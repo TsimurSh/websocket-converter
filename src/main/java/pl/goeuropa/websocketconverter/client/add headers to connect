@@ -38,8 +38,15 @@ public class ConnectManager {
 
     @PostConstruct
     public String connect() throws Exception {
+         StompHeaders handshakeHeaders = new StompHeaders();
+       handshakeHeaders.add("login", "goeuropa");
+       handshakeHeaders.add("passcode", "827ccb0eea8a706c4c34a16891f84e7b");
+       handshakeHeaders.add("accept-version", "1.1");
+       handshakeHeaders.add("heart-beat", "30000,30000");
 
-        CompletableFuture<StompSession> stompSessionFuture = stompClient.connectAsync(URL, sessionHandler);
+       WebSocketHttpHeaders httpHeaders = new WebSocketHttpHeaders();
+
+        CompletableFuture<StompSession> stompSessionFuture = stompClient.connectAsync(URL, httpHeaders, handshakeHeaders, sessionHandler);
 
         try {
             StompSession stompSession = stompSessionFuture.get(TIMEOUT,TimeUnit.SECONDS);
@@ -48,7 +55,7 @@ public class ConnectManager {
             return "Successfully connected to the dslocate network.";
         } catch (Exception ex) {
             log.error("Unable to connect to the dslocate network", ex);
-            return "";
+            return "Do not";
         }
 
     }
