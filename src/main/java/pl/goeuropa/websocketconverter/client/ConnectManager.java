@@ -72,7 +72,6 @@ public class ConnectManager {
         public void handleFrame(StompHeaders headers, Object payload) {
             log.info("------------ Received : -------------");
             System.out.println(((Message) payload).getVehicles().toString());
-            log.info("------------ Received : -------------");
         }
 
         @Override
