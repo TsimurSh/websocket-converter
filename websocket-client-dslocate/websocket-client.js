@@ -1,10 +1,12 @@
 const StompJS = require('@stomp/stompjs');
+const axios = require('axios');
+
 Object.assign(global, { WebSocket: require('ws') });
 
 const client = new StompJS.Client({
   brokerURL: `wss://dslocate.datasystem.pl/fleetservice`,
   connectHeaders: {
-    login: `goeuropa`,
+    login: ``,
     passcode: `827ccb0eea8a706c4c34a16891f84e7b`,
   },
   debug: function () {},
