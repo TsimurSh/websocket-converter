@@ -26,7 +26,7 @@ client.onConnect = (frame) => {
           }
           case 'vehicle update':
             console.log(res.body);
-            axios.post('http://localhost:8889/api/create/test', JSON.parse(res.body))
+            axios.post('http://localhost:8889/api/update-position', JSON.parse(res.body))
                 .then(() => {
                 })
                 .catch((error) => {
