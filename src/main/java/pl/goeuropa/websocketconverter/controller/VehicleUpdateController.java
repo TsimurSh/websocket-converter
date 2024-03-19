@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 
 @Slf4j
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/kombus")
 public class VehicleUpdateController {
 
     private final VehicleUpdateService service;
