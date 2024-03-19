@@ -26,7 +26,7 @@ public class VehicleUpdateController {
         service.putUpdateVehicle(vehicleUpdate);
     }
 
-    @GetMapping("/text")
+    @GetMapping("/positions.text")
     public String get() {
         var asText = service.getUpdatedVehicles();
         log.info("Got positions as text: {}", asText.lines()
