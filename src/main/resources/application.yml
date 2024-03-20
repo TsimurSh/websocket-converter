@@ -3,3 +3,7 @@ server:
 api:
   ## Path to save protobuf file
   out-path: ./kombus_gtfs_vp.pb
+
+spring:
+  jmx:
+    enabled: false
